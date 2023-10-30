@@ -1,6 +1,5 @@
 import cv2 
 import numpy as np 
-from matplotlib import pyplot as plt 
 
 class ImgData:
     def __init__(self):
@@ -9,12 +8,11 @@ class ImgData:
         self.color = []
         self.contour = []
 
-# Instantiate imgdata
-imgdata = ImgData()
+
 
 class image_processor:
-    def __init__(self) -> None:
-        pass
+    def __init__(self):
+        self.imgdata=ImgData()
  
     def detect_shapes(self, img):
 
@@ -97,9 +95,9 @@ class image_processor:
 
         # Set the processed image data to the imgdata object
         self.contour = pattern_contours
-        imgdata.img = self.img
-        imgdata.pattern = pattern_shapes
-        imgdata.color = pattern_colors
-        imgdata.contour = self.contour
+        self.imgdata.img = self.img
+        self.imgdata.pattern = pattern_shapes
+        self.imgdata.color = pattern_colors
+        self.imgdata.contour = self.contour
 
-        return imgdata
+        
