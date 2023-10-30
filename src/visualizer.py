@@ -10,13 +10,13 @@ class visualizer:
         self.color = imgdata.color
         self.contour = imgdata.contour
 
-        self._draw_overlay()
+        self.__draw_overlay()
 
     def show_overlay(self):
         cv2.imshow(self.img)
     
         
-    def _draw_overlay(self):
+    def __draw_overlay(self):
         i = 0
         for contour in self.contour: 
         
