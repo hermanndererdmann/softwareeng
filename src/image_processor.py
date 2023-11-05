@@ -79,7 +79,6 @@ class processor:
         self.imgdata.pattern = pattern
         
 
-        print(self.imgdata.color)
 
 
     def __detect_colors(self,  cx, cy):
