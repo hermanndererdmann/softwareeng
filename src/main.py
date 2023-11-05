@@ -1,5 +1,4 @@
 import cv2
-import numpy as np
 
 from webcam import Camera  # Assuming your camera class is in a 'camera.py' file
 from image_processor import processor
@@ -32,7 +31,7 @@ def main():
     
 
     logging.export()
-    #cam.release()
+    cam.release_camera()
     cv2.destroyAllWindows()
 
 

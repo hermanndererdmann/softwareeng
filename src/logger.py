@@ -10,11 +10,13 @@ class logger:
         self.color = imgdata.color
         self.__append()
 
-    def export(self, path=None):
+    def export(self):
+        path = input("Please enter the log file path (or press enter to use the current directory): ").strip()
+
         if path is None:
             filename = 'logs.csv'
         else:
-            filename = path
+            filename = path + 'logs.csv'
         self.logframe.to_csv(filename, index=False)
 
 
