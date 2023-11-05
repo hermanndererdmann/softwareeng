@@ -5,6 +5,7 @@ from webcam import Camera  # Assuming your camera class is in a 'camera.py' file
 from image_processor import processor
 from visualizer import visualizer
 from logger import logger
+from audio_output import audio_out
 
 def main():
     camera_id = 1  # You can change this to the appropriate camera ID (0, 1, 2, etc.) as needed
@@ -12,6 +13,7 @@ def main():
     imgprocessor = processor()
     overlay_visualizer= visualizer()
     logging = logger()
+    talker = audio_out()
     
 
     while True:
@@ -22,6 +24,7 @@ def main():
         overlay_visualizer.get_imgdata(imgprocessor.imgdata)
         overlay_visualizer.show_overlay()
         logging.get_imgdata(imgprocessor.imgdata)
+        talker.text_to_speech(imgprocessor.imgdata)
 
         key = cv2.waitKey(1)
         if key == 27:
