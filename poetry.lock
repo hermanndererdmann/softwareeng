@@ -249,7 +249,9 @@ files = [
 
 [[package]]
 name = "numpy"
+
 version = "1.26.1"
+
 description = "Fundamental package for array computing in Python"
 optional = false
 python-versions = "<3.13,>=3.9"
@@ -316,7 +318,9 @@ numpy = [
 
 [[package]]
 name = "pandas"
+
 version = "2.0.0"
+
 description = "Powerful data structures for data analysis, time series, and statistics"
 optional = false
 python-versions = ">=3.8"
@@ -378,6 +382,7 @@ plot = ["matplotlib (>=3.6.1)"]
 postgresql = ["SQLAlchemy (>=1.4.16)", "psycopg2 (>=2.8.6)"]
 spss = ["pyreadstat (>=1.1.2)"]
 sql-other = ["SQLAlchemy (>=1.4.16)"]
+
 test = ["hypothesis (>=6.34.2)", "pytest (>=7.0.0)", "pytest-asyncio (>=0.17.0)", "pytest-xdist (>=2.2.0)"]
 xml = ["lxml (>=4.6.3)"]
 
@@ -3259,3 +3264,4 @@ zstd = ["zstandard (>=0.18.0)"]
 lock-version = "2.0"
 python-versions = "^3.8"
 content-hash = "8aee3cccf678ceca5c4e885f5816d9354a803d13e23ae24643d6412196bcdb36"
+
