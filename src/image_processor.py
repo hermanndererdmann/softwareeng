@@ -16,14 +16,14 @@ class processor:
 
 
     def detect_shapes(self, img):
-        
+        self.imgdata.img = img
         pattern = []
         self.imgdata.color = []
+        self.imgdata.contour = []
         cx = []
         cy = []
-        cv2.imshow('Camera Feed', img)
         # setting threshold of gray image 
-        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        gray = cv2.cvtColor(self.imgdata.img, cv2.COLOR_BGR2GRAY)
 
         # Apply Gaussian blur to reduce noise
         blurred = cv2.GaussianBlur(gray, (5, 5), 0)
@@ -71,21 +71,20 @@ class processor:
             # Store the detected contour information
                 cx.append(__cx)
                 cy.append(__cy)
-          
-
-
-            # Call detect_colors to detect color around the centroid
-                self.__detect_colors(img, __cx, __cy)
+                self.imgdata.contour.append(contour)
+                # Call detect_colors to detect color around the centroid
+                self.__detect_colors(__cx, __cy)
         self.imgdata.cx = cx
         self.imgdata.cy = cy
         self.imgdata.pattern = pattern
+        
 
         print(self.imgdata.color)
 
 
-    def __detect_colors(self, img, cx, cy):
+    def __detect_colors(self,  cx, cy):
         # Convert the image to the HSV color space
-        hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+        hsv_img = cv2.cvtColor(self.imgdata.img, cv2.COLOR_BGR2HSV)
 
         # Extract color from a 5x5 region around the centroid (cx, cy)
         color_region = hsv_img[cy - 5:cy + 5, cx - 5:cx + 5]
