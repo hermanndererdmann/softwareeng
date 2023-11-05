@@ -2,6 +2,8 @@ import cv2
 import numpy as np
 from datetime import datetime
 
+
+#object with all the required data for the classes to communicate with each other
 class ImgData:
     def __init__(self):
         self.img = None
@@ -102,7 +104,7 @@ class processor:
     def __classify_color(self, hsv_color):
         
         hue = hsv_color[0]
-
+        #find the color on hsv spectrum
         if 0 <= hue < 10:
             return 'red'
         elif 10 <= hue < 30:

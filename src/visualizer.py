@@ -4,7 +4,7 @@ class visualizer:
     def __init__(self) -> None:
         pass
 
-    def get_imgdata(self, imgdata):
+    def get_imgdata(self, imgdata): 
         self.img = imgdata.img
         self.pattern = imgdata.pattern
         self.color = imgdata.color
@@ -12,6 +12,7 @@ class visualizer:
         self.__draw_overlay()
 
     def show_overlay(self):
+        #show overlay
         cv2.imshow('Overlay', self.img)
 
         
@@ -31,8 +32,8 @@ class visualizer:
                 x = int(M['m10'] / M['m00']) 
                 y = int(M['m01'] / M['m00']) 
 
+            #add text to the overlay
             texttoprint = self.color[i] + "," + self.pattern[i]
-                
             cv2.putText(self.img, texttoprint, (x, y), 
                     cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 2)
 

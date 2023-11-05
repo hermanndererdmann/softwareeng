@@ -17,5 +17,6 @@ class Camera:
             return 'Error'
 
     def release_camera(self):
+        #release cam
         self.cap.release()
 
