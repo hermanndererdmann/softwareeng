@@ -8,21 +8,24 @@ class logger:
         self.timestamp = imgdata.timestamp
         self.pattern = imgdata.pattern
         self.color = imgdata.color
-        self._append()
+        self.__append()
 
     def export(self, path=None):
         if path is None:
             filename = 'logs.csv'
         else:
             filename = path
-        self.logframe.to_csv(filename)
+        self.logframe.to_csv(filename, index=False)
 
 
-    def _append(self):
-        new_data = {'Timestamp': self.timestamp, 'Pattern': self.pattern, 'Color': self.color}
-        self.logframe = self.logframe.append(new_data, ignore_index=True)
+    def __append(self):
+        if self.pattern:
+            for i in range(len(self.pattern)):
+                new_data = pd.DataFrame({'Timestamp': [self.timestamp], 'Pattern': [self.pattern[i]], 'Color': [self.color[i]]})
+                self.logframe = pd.concat([self.logframe, new_data], ignore_index=True)
 
-    
+
+        
 
 
 

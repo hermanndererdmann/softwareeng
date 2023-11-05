@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+from datetime import datetime
 
 class ImgData:
     def __init__(self):
@@ -7,8 +8,8 @@ class ImgData:
         self.pattern = []
         self.color = []
         self.contour = []
-        self.cx = []
-        self.cy = []
+        self.timestamp= []
+
 
 class processor:
     def __init__(self):
@@ -20,6 +21,7 @@ class processor:
         pattern = []
         self.imgdata.color = []
         self.imgdata.contour = []
+        self.imgdata.timestamp = []
         cx = []
         cy = []
         # setting threshold of gray image 
@@ -74,8 +76,8 @@ class processor:
                 self.imgdata.contour.append(contour)
                 # Call detect_colors to detect color around the centroid
                 self.__detect_colors(__cx, __cy)
-        self.imgdata.cx = cx
-        self.imgdata.cy = cy
+                self.imgdata.timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
         self.imgdata.pattern = pattern
         
 
