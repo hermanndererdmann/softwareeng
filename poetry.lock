@@ -252,6 +252,7 @@ name = "numpy"
 
 version = "1.26.1"
 
+
 description = "Fundamental package for array computing in Python"
 optional = false
 python-versions = "<3.13,>=3.9"
